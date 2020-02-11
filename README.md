@@ -1,2 +1,1 @@
-# irs-admin
-Admin system for Intelligent Retail System
+# Intelligent Retail System
