@@ -75,9 +75,18 @@ WSGI_APPLICATION = 'irsserver.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'irsdb',
+        'USER': 'irsadmin',
+        'PASSWORD': '110816',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
+    # DB Setting for SQLite
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
 }
 
 
