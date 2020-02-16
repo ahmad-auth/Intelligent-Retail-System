@@ -105,7 +105,6 @@ class Item(models.Model):
         null=True,
         on_delete=models.SET_NULL
     )
-    in_stock = models.IntegerField(validators=[MinValueValidator(0)])
     item_discount = models.DecimalField(
         default=models.SET(0),
         max_digits=2,

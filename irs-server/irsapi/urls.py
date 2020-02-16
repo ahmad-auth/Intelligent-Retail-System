@@ -18,8 +18,21 @@ from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
 
+from .views import UserViewSet, StoreViewSet, EmployeeViewSet, CustomerViewSet, SalepointViewSet, ItemCategoryViewSet, ItemViewSet, ItemBatchViewSet, SaleViewSet, OrderViewSet
+
 router = routers.DefaultRouter()
+router.register('users', UserViewSet)
+router.register('stores', StoreViewSet)
+router.register('employees', EmployeeViewSet)
+router.register('customers', CustomerViewSet)
+router.register('salepoints', SalepointViewSet)
+router.register('itemcategories', ItemCategoryViewSet)
+router.register('items', ItemViewSet)
+router.register('itembatches', ItemBatchViewSet)
+router.register('sales', SaleViewSet)
+router.register('orders', OrderViewSet)
+
 
 urlpatterns = [
-    path('new/', include(router.urls)),
+    path('', include(router.urls)),
 ]
