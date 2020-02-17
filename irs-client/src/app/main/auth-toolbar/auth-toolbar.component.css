@@ -1,0 +1,11 @@
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  max-height: 50px;
+  justify-content: flex-end;
+}
+
+.auth-user {
+  margin-right: 25px;
+  align-items: self-end;
+}

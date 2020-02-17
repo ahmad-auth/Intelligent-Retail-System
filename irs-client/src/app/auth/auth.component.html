@@ -1,0 +1,36 @@
+<!--<div *ngFor="let user of users">-->
+<!--  <p>{{user.id+', '+user.username}}</p>-->
+<!--</div>-->
+
+<div class="main">
+  <form [formGroup]="authForm" (ngSubmit)="tryAuth()">
+
+    <div class="loginForm">
+
+      <h1>LOGIN TO <strong>IRS</strong></h1>
+
+      <div class="loginFormField">
+        <fa-icon [icon]="['fas', 'user']" size="2x"></fa-icon>
+        <mat-form-field appearance="fill">
+          <mat-label>USERNAME</mat-label>
+          <input type="text" formControlName="username" required matInput>
+          <mat-error *ngIf="authForm.invalid">Field is required.</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="loginFormField">
+        <fa-icon [icon]="['fas', 'key']" size="2x"></fa-icon>
+        <mat-form-field appearance="fill">
+          <mat-label>PASSWORD</mat-label>
+          <input type="password" formControlName="password" required matInput>
+          <mat-error *ngIf="authForm.invalid">Field is required.</mat-error>
+        </mat-form-field>
+      </div>
+
+      <button type="submit" mat-flat-button color="primary">LOGIN</button>
+
+      <mat-error>{{this.errorStatement}}</mat-error>
+
+    </div>
+  </form>
+</div>
