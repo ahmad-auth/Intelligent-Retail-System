@@ -1,1 +1,73 @@
 <h1>Dashboard</h1>
+<mat-grid-list class="components-container" cols="3" rowHeight="100px" gutterSize="25px">
+
+<!-- Stores -->
+  <mat-grid-tile class="component-tile">
+    <button class="component-button" mat-flat-button color="primary">
+      <div class="button-content">
+        <fa-icon [icon]="['fas', 'store']" size="3x"></fa-icon>
+        <h2>Stores</h2>
+      </div>
+    </button>
+  </mat-grid-tile>
+
+<!-- Inventory -->
+  <mat-grid-tile class="component-tile">
+    <button class="component-button" mat-flat-button color="primary">
+      <div class="button-content">
+        <fa-icon [icon]="['fas', 'boxes']" size="3x"></fa-icon>
+        <h2>Inventory</h2>
+      </div>
+    </button>
+  </mat-grid-tile>
+
+<!-- Sales -->
+  <mat-grid-tile class="component-tile">
+    <button class="component-button" mat-flat-button color="primary">
+      <div class="button-content">
+        <fa-icon [icon]="['fas', 'dollar-sign']" size="3x"></fa-icon>
+        <h2>Sales</h2>
+      </div>
+    </button>
+  </mat-grid-tile>
+
+<!-- Finances -->
+  <mat-grid-tile class="component-tile">
+    <button class="component-button" mat-flat-button color="primary">
+      <div class="button-content">
+        <fa-icon [icon]="['fas', 'coins']" size="3x"></fa-icon>
+        <h2>Finances</h2>
+      </div>
+    </button>
+  </mat-grid-tile>
+
+<!-- Customers -->
+  <mat-grid-tile class="component-tile">
+    <button class="component-button" mat-flat-button color="primary">
+      <div class="button-content">
+        <fa-icon [icon]="['fas', 'address-book']" size="3x"></fa-icon>
+        <h2>Customers</h2>
+      </div>
+    </button>
+  </mat-grid-tile>
+
+<!-- Employees -->
+  <mat-grid-tile class="component-tile">
+    <button class="component-button" mat-flat-button color="primary">
+      <div class="button-content">
+        <fa-icon [icon]="['fas', 'id-card']" size="3x"></fa-icon>
+        <h2>Employees</h2>
+      </div>
+    </button>
+  </mat-grid-tile>
+
+<!-- Users -->
+  <mat-grid-tile class="component-tile">
+    <button (click)="navigate()" class="component-button" mat-flat-button color="primary">
+      <div class="button-content">
+        <fa-icon [icon]="['fas', 'users']" size="3x"></fa-icon>
+        <h2>Users</h2>
+      </div>
+    </button>
+  </mat-grid-tile>
+</mat-grid-list>

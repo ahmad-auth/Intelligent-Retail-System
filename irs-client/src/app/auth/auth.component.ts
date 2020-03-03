@@ -38,7 +38,7 @@ export class AuthComponent implements OnInit {
     // );
     const token = this.cookieService.get('irsapi-auth-token');
     if (token) {
-      this.router.navigate(['/main']);
+      this.router.navigate(['/home']);
     }
   }
 
@@ -49,7 +49,7 @@ export class AuthComponent implements OnInit {
         (result: TokenType) => {
           // console.log(result);
           this.cookieService.set('irsapi-auth-token', result.token);
-          this.router.navigate(['/main']);
+          this.router.navigate(['/home']);
         },
         error => {
           this.errorStatement = 'USERNAME OF PASSWORD IS INCORRECT';

@@ -4,18 +4,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AuthModule } from './auth/auth.module';
 import { MainModule } from './main/main.module';
+import { UsersModule } from './users/users.module';
 
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'auth' }
+  {path: '', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 @NgModule({
@@ -27,10 +26,10 @@ const routes: Routes = [
     HttpClientModule,
     AuthModule,
     MainModule,
+    UsersModule,
     RouterModule.forRoot(routes),
     FontAwesomeModule,
-    BrowserAnimationsModule,
-    MatToolbarModule
+    BrowserAnimationsModule
   ],
   exports: [
     RouterModule

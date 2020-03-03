@@ -1,7 +1,8 @@
-<div class="auth-toolbar">
+<div class="auth-toolbar-container">
   <app-auth-toolbar></app-auth-toolbar>
 </div>
-<div>
-  <app-dashboard></app-dashboard>
+<div class="main-container">
+  <app-sidebar class="sidebar-container"></app-sidebar>
+<!--  <router-outlet class="dashboard-container" name="dashboardOutlet"></router-outlet>-->
+  <app-dashboard class="dashboard-container"></app-dashboard>
 </div>
-

@@ -7,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class IrsapiService {
 
-  apiUrl = 'http://127.0.0.1:8000/';
+  serverUrl = 'http://127.0.0.1:8000/';
   apiName = 'irsapi';
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -18,14 +18,14 @@ export class IrsapiService {
     private cookieService: CookieService
   ) { }
 
-  // getUsers() {
-  //   return this.httpClient.get(`${this.apiUrl}${this.apiName}${'/users/'}`, {headers: this.headers});
-  // }
+  getUsers() {
+    return this.httpClient.get(`${this.serverUrl}${this.apiName}${'/users/'}`, {headers: this.getAuthHeaders()});
+  }
 
   loginUser(authData) {
     const body = JSON.stringify(authData);
     // console.log(body);
-    return this.httpClient.post(`${this.apiUrl}${'auth/'}`, body, {headers: this.headers});
+    return this.httpClient.post(`${this.serverUrl}${'auth/'}`, body, {headers: this.headers});
   }
 
   getAuthHeaders() {

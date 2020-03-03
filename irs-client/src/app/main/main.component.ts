@@ -17,7 +17,10 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     const token = this.cookieService.get('irsapi-auth-token');
     if (!token) {
-      this.router.navigate(['/auth']);
+      this.router.navigate(['/login']);
+    } else {
+      // this.router.navigate([{outlets: {dashboardOutlet: '/dashboard'}}]);
+      // this.router.navigate(['/dashboard']);
     }
   }
 

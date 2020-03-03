@@ -1,11 +1,39 @@
-mat-toolbar {
+mat-toolbar-row {
+  margin: 5px 0 0 0;
   display: flex;
   flex-direction: row;
   max-height: 50px;
+  justify-content: space-between;
+}
+
+.title > a:link, a:visited, a:hover, a:active {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.5em;
+  /*color: #FFFFFF;*/
+}
+
+.auth-controls {
+  display: flex;
+  flex-direction: row;
   justify-content: flex-end;
 }
 
 .auth-user {
   margin-right: 25px;
   align-items: self-end;
+}
+
+.auth-user >  a {
+  margin-left: 10px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1em;
+  /*color: #FFFFFF;*/
+}
+
+.logout-icon {
+  /*color: #000000de;*/
+  color: dimgrey;
+  margin-right: 5px;
 }

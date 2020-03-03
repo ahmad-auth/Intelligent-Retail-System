@@ -1,3 +1,14 @@
+.auth-main > mat-toolbar {
+  max-height: 50px;
+}
+
+.title > a:link, a:visited, a:hover, a:active {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.5em;
+  /*color: #FFFFFF;*/
+}
+
 .loginForm {
   display: grid;
   grid-column-gap: 5px;
@@ -27,4 +38,9 @@
 
 .loginFormField > fa-icon {
   color: #3f51b5;
+}
+
+.loginIcon {
+  /*color: #000000de;*/
+  margin-right: 10px;
 }

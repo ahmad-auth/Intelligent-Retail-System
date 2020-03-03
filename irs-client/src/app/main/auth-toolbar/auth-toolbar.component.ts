@@ -20,7 +20,7 @@ export class AuthToolbarComponent implements OnInit {
 
   logout() {
     this.cookieService.delete('irsapi-auth-token');
-    this.router.navigate(['/auth']);
+    this.router.navigate(['/login']);
   }
 
 }

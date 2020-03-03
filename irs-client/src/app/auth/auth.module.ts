@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
@@ -16,7 +18,7 @@ import { IrsapiService } from '../irsapi.service';
 import { AuthComponent } from './auth.component';
 
 const routes: Routes = [
-  {path: 'auth', component: AuthComponent}
+  {path: 'login', component: AuthComponent}
 ];
 
 @NgModule({
@@ -28,6 +30,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatToolbarModule,
     RouterModule.forChild(routes)
   ],
   exports: [
