@@ -28,14 +28,6 @@ export class AuthComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    // this.irsapiService.getUsers().subscribe(
-    //   data => {
-    //     this.users = data;
-    //   },
-    //   error => {
-    //     console.log(error);
-    //   }
-    // );
     const token = this.cookieService.get('irsapi-auth-token');
     if (token) {
       this.router.navigate(['/home']);

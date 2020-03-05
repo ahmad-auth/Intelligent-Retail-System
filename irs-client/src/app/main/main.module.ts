@@ -19,7 +19,10 @@ import { MainComponent } from './main.component';
 import { AuthToolbarComponent } from './auth-toolbar/auth-toolbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import {UsersComponent} from '../users/users.component';
+import { UsersComponent } from '../users/users.component';
+import { CustomersComponent } from '../customers/customers.component';
+import { EmployeesComponent } from '../employees/employees.component';
+import { ItemsComponent } from '../inventory/items/items.component';
 
 import {AppComponent} from '../app.component';
 
@@ -27,7 +30,10 @@ import {AppComponent} from '../app.component';
 const routes: Routes = [
   {path: 'home', component: MainComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'users', component: UsersComponent}
+  {path: 'users', component: UsersComponent},
+  {path: 'customers', component: CustomersComponent},
+  {path: 'employees', component: EmployeesComponent},
+  {path: 'inventory', component: ItemsComponent}
 ];
 
 @NgModule({
@@ -47,7 +53,8 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    SidebarComponent
   ]
 })
 export class MainModule {

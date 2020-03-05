@@ -3,7 +3,7 @@
 
 <!-- Stores -->
   <mat-grid-tile class="component-tile">
-    <button class="component-button" mat-flat-button color="primary">
+    <button class="component-button" mat-flat-button color="primary" disabled>
       <div class="button-content">
         <fa-icon [icon]="['fas', 'store']" size="3x"></fa-icon>
         <h2>Stores</h2>
@@ -13,7 +13,7 @@
 
 <!-- Inventory -->
   <mat-grid-tile class="component-tile">
-    <button class="component-button" mat-flat-button color="primary">
+    <button (click)="navigate('/inventory')" class="component-button" mat-flat-button color="primary">
       <div class="button-content">
         <fa-icon [icon]="['fas', 'boxes']" size="3x"></fa-icon>
         <h2>Inventory</h2>
@@ -23,7 +23,7 @@
 
 <!-- Sales -->
   <mat-grid-tile class="component-tile">
-    <button class="component-button" mat-flat-button color="primary">
+    <button class="component-button" mat-flat-button color="primary" disabled>
       <div class="button-content">
         <fa-icon [icon]="['fas', 'dollar-sign']" size="3x"></fa-icon>
         <h2>Sales</h2>
@@ -33,7 +33,7 @@
 
 <!-- Finances -->
   <mat-grid-tile class="component-tile">
-    <button class="component-button" mat-flat-button color="primary">
+    <button class="component-button" mat-flat-button color="primary" disabled>
       <div class="button-content">
         <fa-icon [icon]="['fas', 'coins']" size="3x"></fa-icon>
         <h2>Finances</h2>
@@ -43,7 +43,7 @@
 
 <!-- Customers -->
   <mat-grid-tile class="component-tile">
-    <button class="component-button" mat-flat-button color="primary">
+    <button (click)="navigate('/customers')" class="component-button" mat-flat-button color="primary">
       <div class="button-content">
         <fa-icon [icon]="['fas', 'address-book']" size="3x"></fa-icon>
         <h2>Customers</h2>
@@ -53,7 +53,7 @@
 
 <!-- Employees -->
   <mat-grid-tile class="component-tile">
-    <button class="component-button" mat-flat-button color="primary">
+    <button (click)="navigate('/employees')" class="component-button" mat-flat-button color="primary">
       <div class="button-content">
         <fa-icon [icon]="['fas', 'id-card']" size="3x"></fa-icon>
         <h2>Employees</h2>
@@ -63,7 +63,7 @@
 
 <!-- Users -->
   <mat-grid-tile class="component-tile">
-    <button (click)="navigate()" class="component-button" mat-flat-button color="primary">
+    <button (click)="navigate('/users')" class="component-button" mat-flat-button color="primary">
       <div class="button-content">
         <fa-icon [icon]="['fas', 'users']" size="3x"></fa-icon>
         <h2>Users</h2>

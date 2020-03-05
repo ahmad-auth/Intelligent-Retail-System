@@ -1,0 +1,72 @@
+<div class="main-container">
+  <app-sidebar class="sidebar-container"></app-sidebar>
+
+  <div class="content-container">
+    <div class="items-table-container">
+      <h1>Items</h1>
+
+      <table mat-table [dataSource]="items" class="mat-elevation-z8">
+
+        <!-- Id Column -->
+        <ng-container matColumnDef="item_id">
+          <th mat-header-cell *matHeaderCellDef> Id. </th>
+          <td mat-cell *matCellDef="let element"> {{element.item_id}} </td>
+        </ng-container>
+
+        <!-- Code Column -->
+        <ng-container matColumnDef="item_code">
+          <th mat-header-cell *matHeaderCellDef> Code </th>
+          <td mat-cell *matCellDef="let element"> {{element.item_code}} </td>
+        </ng-container>
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="item_title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let element"> {{element.item_title}} </td>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="item_price">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let element"> {{element.item_price}} </td>
+        </ng-container>
+
+        <!-- Company Column -->
+        <ng-container matColumnDef="item_company">
+          <th mat-header-cell *matHeaderCellDef> Company </th>
+          <td mat-cell *matCellDef="let element"> {{element.item_company}} </td>
+        </ng-container>
+
+        <!-- Discount Column -->
+        <ng-container matColumnDef="item_discount">
+          <th mat-header-cell *matHeaderCellDef> Discount </th>
+          <td mat-cell *matCellDef="let element"> {{element.item_discount}} </td>
+        </ng-container>
+
+        <!-- Category Column -->
+        <ng-container matColumnDef="item_category_id">
+          <th mat-header-cell *matHeaderCellDef> Category </th>
+          <td mat-cell *matCellDef="let element"> {{element.item_category_id}} </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let element">
+            <div class="action-buttons">
+              <button class="action-button"mat-icon-button color="primary">
+                <fa-icon [icon]="['fas', 'edit']">Edit</fa-icon>
+              </button>
+              <button class="action-button" mat-icon-button color="warn">
+                <fa-icon [icon]="['fas', 'trash-alt']">Delete</fa-icon>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+</div>

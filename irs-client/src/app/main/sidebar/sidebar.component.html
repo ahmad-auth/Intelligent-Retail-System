@@ -1,1 +1,142 @@
-<h1>Sidebar</h1>
+
+<div class="sidebar-content">
+  <button (click)="navigate('/home')" class="component-button" mat-stroked-button>
+    <div class="button-content">
+      <fa-icon [icon]="['fas', 'home']" size="2x"></fa-icon>
+      <h2>Home</h2>
+    </div>
+  </button>
+
+  <button class="component-button" mat-stroked-button disabled>
+    <div class="button-content">
+      <fa-icon [icon]="['fas', 'store']" size="2x"></fa-icon>
+      <h2>Stores</h2>
+    </div>
+  </button>
+
+  <button (click)="navigate('/inventory')" class="component-button" mat-stroked-button>
+    <div class="button-content">
+      <fa-icon [icon]="['fas', 'boxes']" size="2x"></fa-icon>
+      <h2>Inventory</h2>
+    </div>
+  </button>
+
+  <button class="component-button" mat-stroked-button disabled>
+    <div class="button-content">
+      <fa-icon [icon]="['fas', 'dollar-sign']" size="2x"></fa-icon>
+      <h2>Sales</h2>
+    </div>
+  </button>
+
+  <button class="component-button" mmat-stroked-button disabled>
+    <div class="button-content">
+      <fa-icon [icon]="['fas', 'coins']" size="2x"></fa-icon>
+      <h2>Finances</h2>
+    </div>
+  </button>
+
+  <button (click)="navigate('/customers')" class="component-button" mat-stroked-button>
+    <div class="button-content">
+      <fa-icon [icon]="['fas', 'address-book']" size="2x"></fa-icon>
+      <h2>Customers</h2>
+    </div>
+  </button>
+
+  <button (click)="navigate('/employees')" class="component-button" mat-stroked-button>
+    <div class="button-content">
+      <fa-icon [icon]="['fas', 'id-card']" size="2x"></fa-icon>
+      <h2>Employees</h2>
+    </div>
+  </button>
+
+  <button (click)="navigate('/users')" class="component-button" mat-stroked-button>
+    <div class="button-content">
+      <fa-icon [icon]="['fas', 'users']" size="2x"></fa-icon>
+      <h2>Users</h2>
+    </div>
+  </button>
+</div>
+
+
+<!--<mat-grid-list class="components-container" cols="1" rowHeight="50px">-->
+
+<!--  &lt;!&ndash; Home &ndash;&gt;-->
+<!--  <mat-grid-tile class="component-tile">-->
+<!--    <button (click)="navigate('/home')" class="component-button" mat-flat-button color="primary">-->
+<!--      <div class="button-content">-->
+<!--        <fa-icon [icon]="['fas', 'home']" size="2x"></fa-icon>-->
+<!--        <h2>Home</h2>-->
+<!--      </div>-->
+<!--    </button>-->
+<!--  </mat-grid-tile>-->
+
+<!--  &lt;!&ndash; Stores &ndash;&gt;-->
+<!--  <mat-grid-tile class="component-tile">-->
+<!--    <button class="component-button" mat-flat-button color="primary" disabled>-->
+<!--      <div class="button-content">-->
+<!--        <fa-icon [icon]="['fas', 'store']" size="2x"></fa-icon>-->
+<!--        <h2>Stores</h2>-->
+<!--      </div>-->
+<!--    </button>-->
+<!--  </mat-grid-tile>-->
+
+<!--  &lt;!&ndash; Inventory &ndash;&gt;-->
+<!--  <mat-grid-tile class="component-tile">-->
+<!--    <button (click)="navigate('/inventory')" class="component-button" mat-flat-button color="primary">-->
+<!--      <div class="button-content">-->
+<!--        <fa-icon [icon]="['fas', 'boxes']" size="2x"></fa-icon>-->
+<!--        <h2>Inventory</h2>-->
+<!--      </div>-->
+<!--    </button>-->
+<!--  </mat-grid-tile>-->
+
+<!--  &lt;!&ndash; Sales &ndash;&gt;-->
+<!--  <mat-grid-tile class="component-tile">-->
+<!--    <button class="component-button" mat-flat-button color="primary" disabled>-->
+<!--      <div class="button-content">-->
+<!--        <fa-icon [icon]="['fas', 'dollar-sign']" size="2x"></fa-icon>-->
+<!--        <h2>Sales</h2>-->
+<!--      </div>-->
+<!--    </button>-->
+<!--  </mat-grid-tile>-->
+
+<!--  &lt;!&ndash; Finances &ndash;&gt;-->
+<!--  <mat-grid-tile class="component-tile">-->
+<!--    <button class="component-button" mat-flat-button color="primary" disabled>-->
+<!--      <div class="button-content">-->
+<!--        <fa-icon [icon]="['fas', 'coins']" size="2x"></fa-icon>-->
+<!--        <h2>Finances</h2>-->
+<!--      </div>-->
+<!--    </button>-->
+<!--  </mat-grid-tile>-->
+
+<!--  &lt;!&ndash; Customers &ndash;&gt;-->
+<!--  <mat-grid-tile class="component-tile">-->
+<!--    <button (click)="navigate('/customers')" class="component-button" mat-flat-button color="primary">-->
+<!--      <div class="button-content">-->
+<!--        <fa-icon [icon]="['fas', 'address-book']" size="2x"></fa-icon>-->
+<!--        <h2>Customers</h2>-->
+<!--      </div>-->
+<!--    </button>-->
+<!--  </mat-grid-tile>-->
+
+<!--  &lt;!&ndash; Employees &ndash;&gt;-->
+<!--  <mat-grid-tile class="component-tile">-->
+<!--    <button (click)="navigate('/employees')" class="component-button" mat-flat-button color="primary">-->
+<!--      <div class="button-content">-->
+<!--        <fa-icon [icon]="['fas', 'id-card']" size="2x"></fa-icon>-->
+<!--        <h2>Employees</h2>-->
+<!--      </div>-->
+<!--    </button>-->
+<!--  </mat-grid-tile>-->
+
+<!--  &lt;!&ndash; Users &ndash;&gt;-->
+<!--  <mat-grid-tile class="component-tile">-->
+<!--    <button (click)="navigate('/users')" class="component-button" mat-flat-button color="primary">-->
+<!--      <div class="button-content">-->
+<!--        <fa-icon [icon]="['fas', 'users']" size="2x"></fa-icon>-->
+<!--        <h2>Users</h2>-->
+<!--      </div>-->
+<!--    </button>-->
+<!--  </mat-grid-tile>-->
+<!--</mat-grid-list>-->

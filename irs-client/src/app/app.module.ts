@@ -10,6 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { MainModule } from './main/main.module';
 import { UsersModule } from './users/users.module';
+import { CustomersModule } from './customers/customers.module';
+import { EmployeesModule } from './employees/employees.module';
+import { InventoryModule } from './inventory/inventory.module';
 
 import { AppComponent } from './app.component';
 
@@ -27,9 +30,12 @@ const routes: Routes = [
     AuthModule,
     MainModule,
     UsersModule,
-    RouterModule.forRoot(routes),
+    CustomersModule,
+    EmployeesModule,
+    InventoryModule,
     FontAwesomeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes)
   ],
   exports: [
     RouterModule

@@ -18,8 +18,8 @@ export class IrsapiService {
     private cookieService: CookieService
   ) { }
 
-  getUsers() {
-    return this.httpClient.get(`${this.serverUrl}${this.apiName}${'/users/'}`, {headers: this.getAuthHeaders()});
+  getApiRecords(route: string) {
+    return this.httpClient.get(`${this.serverUrl}${this.apiName}${route}`, {headers: this.getAuthHeaders()});
   }
 
   loginUser(authData) {
