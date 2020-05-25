@@ -25,7 +25,7 @@ SECRET_KEY = 'ir4yr(_hi%yj8x6^o!q!#i@cpnoo-dj_e9fc*&93wsu+q!2!2j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.10.6']
 
 
 # Application definition
@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'irsdb',
         'USER': 'irsadmin',
-        'PASSWORD': '110816',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '3306',
     }
