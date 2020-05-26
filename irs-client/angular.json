@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "irs-client"
+  "defaultProject": "irs-client",
+  "cli": {
+    "analytics": false
+  }
 }
