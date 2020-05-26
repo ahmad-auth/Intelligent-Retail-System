@@ -18,6 +18,7 @@ import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome
 import { IrsapiService } from '../irsapi.service';
 
 import {MainModule} from '../main/main.module';
+import { SalesForecastComponent } from './sales-forecast/sales-forecast.component';
 
 const routes: Routes = [
   // {path: 'inventory', component: ItemsComponent, outlet: 'dashboard-outlet'}
@@ -27,7 +28,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [],
+  declarations: [SalesForecastComponent],
   imports: [
     CommonModule,
     MatTableModule,
