@@ -85,13 +85,13 @@ class OrderViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
 
-class ForecastDataView(APIView):
+class ForecastDataViewSet(viewsets.ViewSet):
 
-    # authentication_classes = [TokenAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
-    def get(self, request, format=None):
+    def list(self, request, format=None):
         
-        predictions = forecast_monthly_sales()
+        predictions = forecast_monthly_sales(days=200)
 
         return Response(predictions)
