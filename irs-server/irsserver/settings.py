@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'irsdb',
         'USER': 'irsadmin',
-        'PASSWORD': '110816',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '3306',
     }

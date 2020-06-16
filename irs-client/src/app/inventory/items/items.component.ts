@@ -60,6 +60,10 @@ export class ItemsComponent implements OnInit {
   }
 
   paginatorEvent(event: any){
+
+    if(event.previousPageIndex == event.pageIndex){
+      return;
+    }
     if(event.previousPageIndex > event.pageIndex) {
 
       console.log('Previous');
@@ -81,12 +85,14 @@ export class ItemsComponent implements OnInit {
           // set the components next property here from the response
           this.next = data['next'];
           this.next = this.next.split('irsapi').pop();
+          this.paginator._changePageSize(this.paginator.pageSize);
         }
   
         if (data['previous']) {
           // set the components previous property here from the response
           this.previous = data['previous'];
           this.previous = this.previous.split('irsapi').pop();
+          this.paginator._changePageSize(this.paginator.pageSize);
         }
         
       },
