@@ -11,7 +11,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+//import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
@@ -41,8 +41,7 @@ const routes: Routes = [
     MatToolbarModule,
     MatInputModule,
     MatPaginatorModule,
-    MatDialog,
-    MatDialogRef,
+    
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     MainModule

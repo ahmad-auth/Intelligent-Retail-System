@@ -97,6 +97,7 @@ class ItemSerializer(serializers.ModelSerializer):
             'item_category',
             'item_discount',
         )
+        depth = 1
 
 
 class ItemBatchSerializer(serializers.ModelSerializer):

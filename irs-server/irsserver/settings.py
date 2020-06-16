@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'irsdb',
         'USER': 'irsadmin',
-        'PASSWORD': '1234',
+        'PASSWORD': '110816',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -97,7 +97,9 @@ DATABASES = {
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': {
         'rest_framework.permission.IsAuthenticated',
-    }
+    },
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
 }
 
 CORS_ORIGIN_WHITELIST = [

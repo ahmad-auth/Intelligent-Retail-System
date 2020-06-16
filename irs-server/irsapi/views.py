@@ -1,17 +1,15 @@
 from django.shortcuts import render
 from rest_framework import viewsets, status
-from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework import filters
 
 from django.contrib.auth.models import User
 
 from .models import Store, Employee, Customer, Salepoint, ItemCategory, Item, ItemBatch, Order, Sale
 from .serializers import UserSerializer, StoreSerializer, EmployeeSerializer, CustomerSerializer, SalepointSerializer, ItemCategorySerializer, ItemSerializer, ItemBatchSerializer, OrderSerializer, SaleSerializer
-
-from .Forecasting.Forecast import forecast_monthly_sales
 # Create your views here.
 
 
@@ -61,8 +59,11 @@ class ItemCategoryViewSet(viewsets.ModelViewSet):
 class ItemViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
-    authentication_classes = (TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    # authentication_classes = (TokenAuthentication, )
+    #permission_classes = (IsAuthenticated, )
+    permission_classes = (AllowAny, )
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['item_title', 'item_code', 'item_company', 'item_category__category_name']
 
 
 class ItemBatchViewSet(viewsets.ModelViewSet):
@@ -85,13 +86,4 @@ class OrderViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
 
-class ForecastDataViewSet(viewsets.ViewSet):
 
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
-
-    def list(self, request, format=None):
-        
-        predictions = forecast_monthly_sales(days=200)
-
-        return Response(predictions)
