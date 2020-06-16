@@ -13,6 +13,7 @@ import { UsersModule } from './users/users.module';
 import { CustomersModule } from './customers/customers.module';
 import { EmployeesModule } from './employees/employees.module';
 import { InventoryModule } from './inventory/inventory.module';
+import { ReportsModule } from './reports/reports.module';
 
 import { AppComponent } from './app.component';
 
@@ -33,6 +34,7 @@ const routes: Routes = [
     CustomersModule,
     EmployeesModule,
     InventoryModule,
+    ReportsModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes)
