@@ -10,6 +10,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
@@ -19,6 +21,8 @@ import { IrsapiService } from '../irsapi.service';
 
 import { ItemsComponent } from './items/items.component';
 import {MainModule} from '../main/main.module';
+// import { CreateitemComponent } from './items/createitem/createitem.component';
+// import { DeleteComponent } from './items/createitem/delete/delete.component';
 
 const routes: Routes = [
   {path: 'inventory', component: ItemsComponent, outlet: 'dashboard-outlet'}
@@ -36,6 +40,9 @@ const routes: Routes = [
     MatFormFieldModule,
     MatToolbarModule,
     MatInputModule,
+    MatPaginatorModule,
+    MatDialog,
+    MatDialogRef,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     MainModule

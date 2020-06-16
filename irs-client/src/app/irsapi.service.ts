@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -18,8 +18,13 @@ export class IrsapiService {
     private cookieService: CookieService
   ) { }
 
-  getApiRecords(route: string) {
-    return this.httpClient.get(`${this.serverUrl}${this.apiName}${route}`, {headers: this.getAuthHeaders()});
+  getApiRecords(route: string, parameters?: HttpParams) {
+    return this.httpClient.get(`${this.serverUrl}${this.apiName}${route}`, {headers: this.getAuthHeaders(), params: parameters});
+  }
+
+  postFormData(route: string, data){
+    const body = JSON.stringify(data);
+    return this.httpClient.post(`${this.serverUrl}${route}`, body, {headers: this.getAuthHeaders()});
   }
 
   loginUser(authData) {
