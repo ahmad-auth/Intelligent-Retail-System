@@ -3,6 +3,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IrsapiService } from '../../irsapi.service';
 import { PageEvent } from '@angular/material/paginator';
 import { HttpParams } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateitemComponent } from './createitem/createitem.component';
 
 @Component({
   selector: 'app-items',
@@ -19,7 +21,8 @@ export class ItemsComponent implements OnInit {
   @ViewChild('paginator') paginator;
 
   constructor(
-    private irsApiService: IrsapiService
+    private irsApiService: IrsapiService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -72,6 +75,12 @@ export class ItemsComponent implements OnInit {
       console.log(this.next);
       this.getNext();
     }
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CreateitemComponent,{
+      width: '640px',disableClose: true 
+    });
   }
 
   applyFilter(event: Event){

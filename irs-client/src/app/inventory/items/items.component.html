@@ -8,6 +8,9 @@
                 <mat-label>Filter</mat-label>
                 <input matInput (keyup)="applyFilter($event)" placeholder="Search">
             </mat-form-field>
+            <div>
+                <button mat-raised-button color="primary" (click)="openDialog()">Add</button>
+            </div>
             <table mat-table [dataSource]="items.results" class="mat-elevation-z8">
 
                 <!-- Id Column -->
