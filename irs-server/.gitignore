@@ -24,7 +24,11 @@ var/
 wheels/
 pip-wheel-metadata/
 share/python-wheels/
+<<<<<<< HEAD
 .vscode/
+=======
+*.csv
+>>>>>>> reporting-module
 *.egg-info/
 .installed.cfg
 *.egg

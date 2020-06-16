@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets, status
+from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework.authentication import TokenAuthentication
@@ -9,6 +10,8 @@ from django.contrib.auth.models import User
 
 from .models import Store, Employee, Customer, Salepoint, ItemCategory, Item, ItemBatch, Order, Sale
 from .serializers import UserSerializer, StoreSerializer, EmployeeSerializer, CustomerSerializer, SalepointSerializer, ItemCategorySerializer, ItemSerializer, ItemBatchSerializer, OrderSerializer, SaleSerializer
+
+from .Forecasting.Forecast import forecast_monthly_sales
 # Create your views here.
 
 
@@ -82,4 +85,13 @@ class OrderViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
 
+class ForecastDataView(APIView):
 
+    # authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format=None):
+        
+        predictions = forecast_monthly_sales()
+
+        return Response(predictions)

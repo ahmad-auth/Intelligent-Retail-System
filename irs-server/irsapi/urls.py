@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import include
+from django.conf.urls import include, url
 from rest_framework import routers
 
-from .views import UserViewSet, StoreViewSet, EmployeeViewSet, CustomerViewSet, SalepointViewSet, ItemCategoryViewSet, ItemViewSet, ItemBatchViewSet, SaleViewSet, OrderViewSet
+from .views import UserViewSet, StoreViewSet, EmployeeViewSet, CustomerViewSet, SalepointViewSet, ItemCategoryViewSet, ItemViewSet, ItemBatchViewSet, SaleViewSet, OrderViewSet, ForecastDataView
 
 router = routers.DefaultRouter()
 router.register('users', UserViewSet)
@@ -35,4 +35,5 @@ router.register('orders', OrderViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    url(r'^predict/$', ForecastDataView.as_view(), name="predict")
 ]
