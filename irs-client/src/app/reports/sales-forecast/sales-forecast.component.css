@@ -1,0 +1,38 @@
+app-auth-toolbar {
+    margin: 0;
+    padding: 0;
+    height: 30px;
+  }
+  
+  .main-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: white;
+  }
+  
+  .sidebar-container {
+    background-color: whitesmoke;
+    margin: 5px;
+    padding: 10px;
+  }
+  
+  .content-container {
+    background-color: whitesmoke;
+    margin: 5px;
+    padding: 10px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .items-table-container {
+    margin: 5px;
+    padding: 5px;
+  }
+  
+  .action-button {
+    margin: 5px;
+    padding: 5px;
+  }
+  

@@ -25,6 +25,7 @@ import { EmployeesComponent } from '../employees/employees.component';
 import { ItemsComponent } from '../inventory/items/items.component';
 
 import {AppComponent} from '../app.component';
+import { SalesForecastComponent } from '../reports/sales-forecast/sales-forecast.component';
 
 
 const routes: Routes = [
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path: 'users', component: UsersComponent},
   {path: 'customers', component: CustomersComponent},
   {path: 'employees', component: EmployeesComponent},
-  {path: 'inventory', component: ItemsComponent}
+  {path: 'inventory', component: ItemsComponent},
+  {path: 'reports', component: SalesForecastComponent}
 ];
 
 @NgModule({

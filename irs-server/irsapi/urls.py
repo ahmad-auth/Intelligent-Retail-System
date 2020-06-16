@@ -18,7 +18,7 @@ from django.urls import path
 from django.conf.urls import include, url
 from rest_framework import routers
 
-from .views import UserViewSet, StoreViewSet, EmployeeViewSet, CustomerViewSet, SalepointViewSet, ItemCategoryViewSet, ItemViewSet, ItemBatchViewSet, SaleViewSet, OrderViewSet, ForecastDataView
+from .views import UserViewSet, StoreViewSet, EmployeeViewSet, CustomerViewSet, SalepointViewSet, ItemCategoryViewSet, ItemViewSet, ItemBatchViewSet, SaleViewSet, OrderViewSet, ForecastDataViewSet
 
 router = routers.DefaultRouter()
 router.register('users', UserViewSet)
@@ -31,9 +31,10 @@ router.register('items', ItemViewSet)
 router.register('itembatches', ItemBatchViewSet)
 router.register('sales', SaleViewSet)
 router.register('orders', OrderViewSet)
+router.register('predict', ForecastDataViewSet, basename='predict')
 
 
 urlpatterns = [
     path('', include(router.urls)),
-    url(r'^predict/$', ForecastDataView.as_view(), name="predict")
+    
 ]
