@@ -86,4 +86,13 @@ class OrderViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
 
+class ForecastDataViewSet(viewsets.ViewSet):
 
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def list(self, request, format=None):
+        
+        predictions = forecast_monthly_sales(days=200)
+
+        return Response(predictions)
