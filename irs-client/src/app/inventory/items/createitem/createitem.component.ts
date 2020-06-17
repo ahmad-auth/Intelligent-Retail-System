@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DiscardFormComponent } from './discard-form/discard-form.component';
 import { IrsapiService } from 'src/app/irsapi.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSelect } from '@angular/material/select';
+import { FormControl } from '@angular/forms';
+import { MatListOption } from '@angular/material/list';
 
 @Component({
   selector: 'app-createitem',
@@ -19,23 +22,28 @@ export class CreateitemComponent implements OnInit {
   public price:number;
   public company: string;
   public discount: number;
-  public category: string;
+  public category: any;
+  public selectedValue: any;
+  public categories: any;
   wasFormChanged = false;
   constructor(private irsApiService: IrsapiService, private fb: FormBuilder,
-    public dialog: MatDialog,private _snackBar: MatSnackBar) {
+    public dialog: MatDialog,private _snackBar: MatSnackBar, @Inject(MAT_DIALOG_DATA) data) {
       this.createItemForm = fb.group({
         item_code: [this.code, Validators.required],
         item_title: [this.title, Validators.required],
         item_price: [this.price, Validators.required],
         item_company: [this.company,Validators.required],
         item_discount: [this.discount,Validators.required],
-        item_catrgory: [this.category, Validators.required]
-    });
+        item_category: [this.category, Validators.required]
+      });
+      this.category = new FormControl('Choose a category');
+      this.categories = data;
     }
 
   ngOnInit(): void {
 
     this.breakpoint = window.innerWidth <= 600 ? 1 : 2;
+    
   }
 
   openDialog(): void {
@@ -56,18 +64,18 @@ export class CreateitemComponent implements OnInit {
 
   createItem(){
     console.log(this.createItemForm.value);
-    this.irsApiService.postFormData('items/', this.createItemForm.value).subscribe(
-      data => {
-        console.log(data);
-        this.dialog.closeAll();
-        this._snackBar.open("Successfully item added", "Dismiss", {
-          duration: 2000,
-        });
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    // this.irsApiService.postFormData('items/', this.createItemForm.value).subscribe(
+    //   data => {
+    //     console.log(data);
+    //     this.dialog.closeAll();
+    //     this._snackBar.open("Successfully item added", "Dismiss", {
+    //       duration: 2000,
+    //     });
+    //   },
+    //   error => {
+    //     console.log(error);
+    //   }
+    // );
   }
 
   private markAsDirty(group: FormGroup): void {

@@ -18,6 +18,7 @@ export class ItemsComponent implements OnInit {
 
   next: string;
   previous: string = null;
+  categories: any;
   @ViewChild('paginator') paginator;
 
   constructor(
@@ -27,6 +28,15 @@ export class ItemsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData('/items/');
+    this.irsApiService.getApiRecords('/itemcategories/').subscribe(
+      data => {
+        console.log(data);
+        this.categories = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   getData(url: string){
@@ -82,6 +92,7 @@ export class ItemsComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width="600px";
+    dialogConfig.data = this.categories.results;
     this.dialog.open(CreateitemComponent, dialogConfig);
     
   }

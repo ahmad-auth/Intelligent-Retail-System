@@ -14,6 +14,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatSelectModule } from '@angular/material/select';
+import {FormsModule} from '@angular/forms';
+import { MatListModule } from '@angular/material/list';
 
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
@@ -48,6 +51,9 @@ const routes: Routes = [
     MatGridListModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatSelectModule,
+    FormsModule,
+    MatListModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     MainModule
