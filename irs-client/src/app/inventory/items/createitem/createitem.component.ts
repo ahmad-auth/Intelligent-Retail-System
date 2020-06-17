@@ -34,9 +34,8 @@ export class CreateitemComponent implements OnInit {
         item_price: [this.price, Validators.required],
         item_company: [this.company,Validators.required],
         item_discount: [this.discount,Validators.required],
-        item_category: [this.category, Validators.required]
+        item_category: [this.category]
       });
-      this.category = new FormControl('Choose a category');
       this.categories = data;
     }
 
@@ -63,6 +62,7 @@ export class CreateitemComponent implements OnInit {
   }
 
   createItem(){
+    console.log(this.category);
     console.log(this.createItemForm.value);
     // this.irsApiService.postFormData('items/', this.createItemForm.value).subscribe(
     //   data => {
@@ -80,7 +80,6 @@ export class CreateitemComponent implements OnInit {
 
   private markAsDirty(group: FormGroup): void {
     group.markAsDirty();
-    // tslint:disable-next-line:forin
     for (const i in group.controls) {
       group.controls[i].markAsDirty();
     }
