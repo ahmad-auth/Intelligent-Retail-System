@@ -27,6 +27,10 @@ export class IrsapiService {
     return this.httpClient.post(`${this.serverUrl}${'irsapi/'}${route}`, body, {headers: this.getAuthHeaders()});
   }
 
+  deleteRecord(route: string, id){
+    return this.httpClient.delete(`${this.serverUrl}${'irsapi/'}${route}${id}`);
+  }
+
   loginUser(authData) {
     const body = JSON.stringify(authData);
     // console.log(body);

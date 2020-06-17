@@ -5,6 +5,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { HttpParams } from '@angular/common/http';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CreateitemComponent } from './createitem/createitem.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-items',
@@ -19,11 +20,13 @@ export class ItemsComponent implements OnInit {
   next: string;
   previous: string = null;
   categories: any;
+  lastFilter: any;
   @ViewChild('paginator') paginator;
 
   constructor(
     private irsApiService: IrsapiService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -64,6 +67,17 @@ export class ItemsComponent implements OnInit {
     );
   }
 
+  deleteItem(id){
+    console.log(id);
+    this.irsApiService.deleteRecord('items/', id).subscribe(response => {
+      console.log(response);
+      this._snackBar.open("Deleted item", "Dismiss", {
+        duration: 2000,
+      });
+      this.refresh();
+    });
+  }
+
   getNext(){
     this.getData(this.next);
   }
@@ -97,8 +111,41 @@ export class ItemsComponent implements OnInit {
     
   }
 
+  refresh(){
+    if(this.lastFilter == null){
+      this.getData('/items/');
+    }
+    else{
+      let params = new HttpParams().set('search', this.lastFilter);
+      this.irsApiService.getApiRecords('/items/', params).subscribe(
+        data => {
+          console.log(data);
+          this.items = data;
+          if (data['next']) {
+            // set the components next property here from the response
+            this.next = data['next'];
+            this.next = this.next.split('irsapi').pop();
+            this.paginator._changePageSize(this.paginator.pageSize);
+          }
+    
+          if (data['previous']) {
+            // set the components previous property here from the response
+            this.previous = data['previous'];
+            this.previous = this.previous.split('irsapi').pop();
+            this.paginator._changePageSize(this.paginator.pageSize);
+          }
+          
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
+  }
+
   applyFilter(event: Event){
     const filterValue = (event.target as HTMLInputElement).value;
+    this.lastFilter = filterValue;
     let params = new HttpParams().set('search', filterValue);
     this.irsApiService.getApiRecords('/items/', params).subscribe(
       data => {

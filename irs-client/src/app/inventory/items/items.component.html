@@ -73,11 +73,11 @@
                     <td mat-cell *matCellDef="let element">
                         <div class="action-buttons">
                             <button class="action-button" mat-icon-button color="primary">
-                <fa-icon [icon]="['fas', 'edit']">Edit</fa-icon>
-              </button>
-                            <button class="action-button" mat-icon-button color="warn">
-                <fa-icon [icon]="['fas', 'trash-alt']">Delete</fa-icon>
-              </button>
+                                <fa-icon [icon]="['fas', 'edit']">Edit</fa-icon>
+                            </button>
+                            <button class="action-button" (click)="deleteItem(element.item_id)" mat-icon-button color="warn">
+                                <fa-icon [icon]="['fas', 'trash-alt']">Delete</fa-icon>
+                            </button>
                         </div>
                     </td>
                 </ng-container>
