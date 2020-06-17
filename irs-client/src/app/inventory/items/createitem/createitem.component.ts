@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DiscardFormComponent } from './discard-form/discard-form.component';
 import { IrsapiService } from 'src/app/irsapi.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-createitem',
@@ -15,22 +16,25 @@ export class CreateitemComponent implements OnInit {
   public createItemForm: FormGroup;
   public code: string;
   public title: string;
-  public price:any;
+  public price:number;
   public company: string;
-  public discount: any;
+  public discount: number;
+  public category: string;
   wasFormChanged = false;
   constructor(private irsApiService: IrsapiService, private fb: FormBuilder,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,private _snackBar: MatSnackBar) {
       this.createItemForm = fb.group({
         item_code: [this.code, Validators.required],
         item_title: [this.title, Validators.required],
         item_price: [this.price, Validators.required],
         item_company: [this.company,Validators.required],
-        item_discount: [this.discount,Validators.required]
+        item_discount: [this.discount,Validators.required],
+        item_catrgory: [this.category, Validators.required]
     });
     }
 
   ngOnInit(): void {
+
     this.breakpoint = window.innerWidth <= 600 ? 1 : 2;
   }
 
@@ -55,6 +59,10 @@ export class CreateitemComponent implements OnInit {
     this.irsApiService.postFormData('items/', this.createItemForm.value).subscribe(
       data => {
         console.log(data);
+        this.dialog.closeAll();
+        this._snackBar.open("Successfully item added", "Dismiss", {
+          duration: 2000,
+        });
       },
       error => {
         console.log(error);

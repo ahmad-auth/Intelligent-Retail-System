@@ -11,9 +11,7 @@ export class DiscardFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private dialog: MatDialog, private dialogRef: MatDialogRef<DiscardFormComponent>) {} // Closing dialog window
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
     
     public cancel(): void { // To cancel the dialog window
       this.dialogRef.close();
