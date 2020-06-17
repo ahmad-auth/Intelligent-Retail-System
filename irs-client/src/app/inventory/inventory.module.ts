@@ -28,6 +28,8 @@ import { ItemsComponent } from './items/items.component';
 import {MainModule} from '../main/main.module';
 import { CreateitemComponent } from './items/createitem/createitem.component';
 import { DiscardFormComponent } from './items/createitem/discard-form/discard-form.component';
+import { EdititemComponent } from './items/edititem/edititem.component';
+import { DiscardEditItemComponent } from './items/edititem/discard-edit-item/discard-edit-item.component';
 // import { CreateitemComponent } from './items/createitem/createitem.component';
 // import { DeleteComponent } from './items/createitem/delete/delete.component';
 
@@ -37,7 +39,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [ItemsComponent, CreateitemComponent, DiscardFormComponent],
+  declarations: [ItemsComponent, CreateitemComponent, DiscardFormComponent, EdititemComponent, DiscardEditItemComponent],
   imports: [
     CommonModule,
     MatTableModule,
