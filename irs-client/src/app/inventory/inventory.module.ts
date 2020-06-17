@@ -11,7 +11,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { MatGridList } from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog'
 
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
@@ -43,8 +44,8 @@ const routes: Routes = [
     MatToolbarModule,
     MatInputModule,
     MatPaginatorModule,
-    MatGridList,
-    
+    MatGridListModule,
+    MatDialogModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     MainModule
@@ -54,7 +55,8 @@ const routes: Routes = [
   ],
   providers: [
     IrsapiService
-  ]
+  ],
+  entryComponents: [CreateitemComponent]
 })
 export class InventoryModule {
   constructor(library: FaIconLibrary) {

@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IrsapiService } from '../../irsapi.service';
 import { PageEvent } from '@angular/material/paginator';
 import { HttpParams } from '@angular/common/http';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CreateitemComponent } from './createitem/createitem.component';
 
 @Component({
@@ -78,9 +78,12 @@ export class ItemsComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(CreateitemComponent,{
-      width: '640px',disableClose: true 
-    });
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width="600px";
+    this.dialog.open(CreateitemComponent, dialogConfig);
+    
   }
 
   applyFilter(event: Event){

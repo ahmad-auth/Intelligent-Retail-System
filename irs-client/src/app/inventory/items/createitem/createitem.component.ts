@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DiscardFormComponent } from './discard-form/discard-form.component';
 
 @Component({
@@ -12,9 +12,22 @@ export class CreateitemComponent implements OnInit {
 
   public breakpoint: number; // Breakpoint observer code
   public createItemForm: FormGroup;
+  public code: string;
+  public title: string;
+  public price:number;
+  public company: string;
+  public discount: number;
   wasFormChanged = false;
   constructor(private fb: FormBuilder,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog) {
+      this.createItemForm = fb.group({
+        item_code: [this.code, Validators.required],
+        item_title: [this.title, Validators.required],
+        item_price: [this.price, Validators.required],
+        item_company: [this.company,Validators.required],
+        item_discount: [this.discount,Validators.required]
+    });
+    }
 
   ngOnInit(): void {
     this.breakpoint = window.innerWidth <= 600 ? 1 : 2;
