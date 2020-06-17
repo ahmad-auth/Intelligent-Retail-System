@@ -8,15 +8,16 @@
                 <mat-form-field flex class="md-icon-float md-block md-title">
                     <mat-label>Filter</mat-label>
                     <input matInput (keyup)="applyFilter($event)" placeholder="Search">
+                    <fa-icon matSuffix [icon]="['fas', 'search']" matsuffix size="1x"></fa-icon>
                 </mat-form-field>
-                <div style="float: right;margin-right: 20px;">
+                <div style="float: right;margin-left: 20px;">
                     <button mat-raised-button color="primary" (click)="openDialog()">
                         <fa-icon [icon]="['fas', 'plus']" size="1x"></fa-icon>
                         Add items from .csv
                     </button>
                 </div>
                 <div style="float: right;">
-                    <button mat-raised-button color="primary" (click)="openDialog()">
+                    <button mat-raised-button color="Link" (click)="openDialog()">
                         <fa-icon [icon]="['fas', 'plus']" size="1x"></fa-icon>
                         Add a new item
                     </button>

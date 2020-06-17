@@ -106,8 +106,8 @@ class Item(models.Model):
         on_delete=models.SET_NULL
     )
     item_discount = models.DecimalField(
-        max_digits=2,
-        decimal_places=2,
+         max_digits=6,
+         decimal_places=2,
         # validators=[
         #     MinValueValidator(0),
         #     MaxValueValidator(1)

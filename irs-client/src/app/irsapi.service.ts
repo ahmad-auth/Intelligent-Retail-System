@@ -24,7 +24,7 @@ export class IrsapiService {
 
   postFormData(route: string, data){
     const body = JSON.stringify(data);
-    return this.httpClient.post(`${this.serverUrl}${route}`, body, {headers: this.getAuthHeaders()});
+    return this.httpClient.post(`${this.serverUrl}${'irsapi/'}${route}`, body, {headers: this.getAuthHeaders()});
   }
 
   loginUser(authData) {

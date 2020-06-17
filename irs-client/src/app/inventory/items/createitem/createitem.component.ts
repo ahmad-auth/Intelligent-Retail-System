@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DiscardFormComponent } from './discard-form/discard-form.component';
+import { IrsapiService } from 'src/app/irsapi.service';
 
 @Component({
   selector: 'app-createitem',
@@ -14,11 +15,11 @@ export class CreateitemComponent implements OnInit {
   public createItemForm: FormGroup;
   public code: string;
   public title: string;
-  public price:number;
+  public price:any;
   public company: string;
-  public discount: number;
+  public discount: any;
   wasFormChanged = false;
-  constructor(private fb: FormBuilder,
+  constructor(private irsApiService: IrsapiService, private fb: FormBuilder,
     public dialog: MatDialog) {
       this.createItemForm = fb.group({
         item_code: [this.code, Validators.required],
@@ -50,7 +51,15 @@ export class CreateitemComponent implements OnInit {
   }
 
   createItem(){
-    console.log('CREATE');
+    console.log(this.createItemForm.value);
+    this.irsApiService.postFormData('items/', this.createItemForm.value).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   private markAsDirty(group: FormGroup): void {
