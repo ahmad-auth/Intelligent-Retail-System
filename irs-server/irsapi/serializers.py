@@ -88,6 +88,7 @@ class ItemCategorySerializer(serializers.ModelSerializer):
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
+        depth = 1
         fields = (
             'item_id',
             'item_code',
@@ -97,7 +98,24 @@ class ItemSerializer(serializers.ModelSerializer):
             'item_category',
             'item_discount',
         )
-        depth = 1
+        # def create(self, validated_data):
+        #     # Override default `.create()` method in order to properly add `sport` and `category` into the model
+        #     category = validated_data.pop('item_category')
+        #     item = Item.objects.create(item_category=category, **validated_data)
+        #     return item
+
+class ItemCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Item
+        fields = (
+            'item_id',
+            'item_code',
+            'item_title',
+            'item_price',
+            'item_company',
+            'item_category',
+            'item_discount',
+        )
 
 
 class ItemBatchSerializer(serializers.ModelSerializer):

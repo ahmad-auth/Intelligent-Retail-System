@@ -46,7 +46,6 @@ export class CreateitemComponent implements OnInit {
   }
 
   openDialog(): void {
-    console.log(this.wasFormChanged);
     if(this.createItemForm.dirty) {
       const dialogRef = this.dialog.open(DiscardFormComponent, {
         width: '340px',
@@ -62,20 +61,17 @@ export class CreateitemComponent implements OnInit {
   }
 
   createItem(){
-    console.log(this.category);
-    console.log(this.createItemForm.value);
-    // this.irsApiService.postFormData('items/', this.createItemForm.value).subscribe(
-    //   data => {
-    //     console.log(data);
-    //     this.dialog.closeAll();
-    //     this._snackBar.open("Successfully item added", "Dismiss", {
-    //       duration: 2000,
-    //     });
-    //   },
-    //   error => {
-    //     console.log(error);
-    //   }
-    // );
+    this.irsApiService.postFormData('items/', this.createItemForm.value).subscribe(
+      data => {
+        this.dialog.closeAll();
+        this._snackBar.open("Successfully item added", "Dismiss", {
+          duration: 2000,
+        });
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   private markAsDirty(group: FormGroup): void {

@@ -9,7 +9,7 @@ from rest_framework import filters
 from django.contrib.auth.models import User
 
 from .models import Store, Employee, Customer, Salepoint, ItemCategory, Item, ItemBatch, Order, Sale
-from .serializers import UserSerializer, StoreSerializer, EmployeeSerializer, CustomerSerializer, SalepointSerializer, ItemCategorySerializer, ItemSerializer, ItemBatchSerializer, OrderSerializer, SaleSerializer
+from .serializers import UserSerializer, StoreSerializer, EmployeeSerializer, CustomerSerializer, SalepointSerializer, ItemCategorySerializer, ItemSerializer, ItemCreateSerializer, ItemBatchSerializer, OrderSerializer, SaleSerializer
 # Create your views here.
 
 
@@ -59,11 +59,21 @@ class ItemCategoryViewSet(viewsets.ModelViewSet):
 class ItemViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
-    # authentication_classes = (TokenAuthentication, )
-    #permission_classes = (IsAuthenticated, )
-    permission_classes = (AllowAny, )
+    authentication_classes = (TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+    #permission_classes = (AllowAny, )
     filter_backends = [filters.SearchFilter]
     search_fields = ['item_title', 'item_code', 'item_company', 'item_category__category_name']
+    def create(self, request, *args, **kwargs):
+        # If we're creating (POST) then we switch serializers to the one that doesn't include depth = 2
+        serializer = ItemCreateSerializer(data = request.data)
+        if serializer.is_valid():
+            self.object = serializer.save()
+            headers = self.get_success_headers(serializer.data)
+            # Here we serialize the object with the proper depth = 2
+            new_c = ItemSerializer(self.object)
+            return Response(new_c.data, status = status.HTTP_201_CREATED, headers = headers)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 
 class ItemBatchViewSet(viewsets.ModelViewSet):
