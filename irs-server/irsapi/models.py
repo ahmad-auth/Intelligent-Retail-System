@@ -89,10 +89,13 @@ class ItemCategory(models.Model):
         # ]
     )
 
-
 class Item(models.Model):
     item_id = models.AutoField(primary_key=True)
     item_code = models.CharField(max_length=32)  # Barcode of Items
+    item_stock = models.IntegerField(
+        default=1,
+        validators=[MinValueValidator(1)]
+    )
     item_title = models.CharField(max_length=64)
     item_price = models.DecimalField(
         max_digits=6,
@@ -106,12 +109,12 @@ class Item(models.Model):
         on_delete=models.SET_NULL
     )
     item_discount = models.DecimalField(
-         max_digits=6,
-         decimal_places=2,
-        # validators=[
-        #     MinValueValidator(0),
-        #     MaxValueValidator(1)
-        # ]
+        max_digits=7,
+        decimal_places=2,
+        validators=[
+            MinValueValidator(0),
+            MaxValueValidator(1)
+        ]
     )
 
 

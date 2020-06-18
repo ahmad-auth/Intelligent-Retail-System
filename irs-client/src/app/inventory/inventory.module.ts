@@ -32,6 +32,7 @@ import { EdititemComponent } from './items/edititem/edititem.component';
 import { DiscardEditItemComponent } from './items/edititem/discard-edit-item/discard-edit-item.component';
 import { InventoryComponent } from './inventory.component';
 import { InventoryDashboardComponent } from './inventory-dashboard/inventory-dashboard.component';
+import { CategoryComponent } from './category/category.component';
 // import { CreateitemComponent } from './items/createitem/createitem.component';
 // import { DeleteComponent } from './items/createitem/delete/delete.component';
 
@@ -47,7 +48,7 @@ const routes: Routes = [
     CreateitemComponent, 
     DiscardFormComponent, 
     EdititemComponent, 
-    DiscardEditItemComponent, InventoryDashboardComponent,
+    DiscardEditItemComponent, InventoryDashboardComponent, CategoryComponent,
   ],
   imports: [
     CommonModule,

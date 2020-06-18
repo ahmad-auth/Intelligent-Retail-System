@@ -84,7 +84,6 @@ class ItemCategorySerializer(serializers.ModelSerializer):
             'category_discount'
         )
 
-
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
@@ -97,6 +96,7 @@ class ItemSerializer(serializers.ModelSerializer):
             'item_company',
             'item_category',
             'item_discount',
+            'item_stock'
         )
         # def create(self, validated_data):
         #     # Override default `.create()` method in order to properly add `sport` and `category` into the model
