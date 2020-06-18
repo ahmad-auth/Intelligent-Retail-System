@@ -109,6 +109,7 @@ class ItemCreateSerializer(serializers.ModelSerializer):
         model = Item
         fields = (
             'item_id',
+            'item_stock',
             'item_code',
             'item_title',
             'item_price',

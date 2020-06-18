@@ -65,7 +65,7 @@ export class EdititemComponent implements OnInit {
 
   editItem(){
     console.log(this.itemData);
-    this.irsApiService.putFormData('items/', this.editItemForm.value, this.itemData).subscribe(
+    this.irsApiService.patchFormData('items/', this.editItemForm.value, this.itemData).subscribe(
       data => {
         this.dialog.closeAll();
         this._snackBar.open("Item changed", "Dismiss", {
