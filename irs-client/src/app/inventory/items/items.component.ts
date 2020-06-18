@@ -46,7 +46,6 @@ export class ItemsComponent implements OnInit {
   getData(url: string){
     this.irsApiService.getApiRecords(url).subscribe(
       data => {
-        console.log(data);
         this.items = data;
         if (data['next']) {
           // set the components next property here from the response

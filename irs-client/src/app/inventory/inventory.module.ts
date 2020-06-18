@@ -30,16 +30,25 @@ import { CreateitemComponent } from './items/createitem/createitem.component';
 import { DiscardFormComponent } from './items/createitem/discard-form/discard-form.component';
 import { EdititemComponent } from './items/edititem/edititem.component';
 import { DiscardEditItemComponent } from './items/edititem/discard-edit-item/discard-edit-item.component';
+import { InventoryComponent } from './inventory.component';
+import { InventoryDashboardComponent } from './inventory-dashboard/inventory-dashboard.component';
 // import { CreateitemComponent } from './items/createitem/createitem.component';
 // import { DeleteComponent } from './items/createitem/delete/delete.component';
 
 const routes: Routes = [
-  {path: 'inventory', component: ItemsComponent, outlet: 'dashboard-outlet'}
+{path: 'inventory/items', component: ItemsComponent, /*outlet: 'dashboard-outlet'*/}
 ];
 
 
 @NgModule({
-  declarations: [ItemsComponent, CreateitemComponent, DiscardFormComponent, EdititemComponent, DiscardEditItemComponent],
+  declarations: [
+    InventoryComponent, 
+    ItemsComponent, 
+    CreateitemComponent, 
+    DiscardFormComponent, 
+    EdititemComponent, 
+    DiscardEditItemComponent, InventoryDashboardComponent,
+  ],
   imports: [
     CommonModule,
     MatTableModule,
@@ -66,7 +75,7 @@ const routes: Routes = [
   providers: [
     IrsapiService
   ],
-  entryComponents: [CreateitemComponent]
+  entryComponents: [InventoryComponent]
 })
 export class InventoryModule {
   constructor(library: FaIconLibrary) {
