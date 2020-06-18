@@ -52,16 +52,18 @@ class SalepointViewSet(viewsets.ModelViewSet):
 class ItemCategoryViewSet(viewsets.ModelViewSet):
     queryset = ItemCategory.objects.all()
     serializer_class = ItemCategorySerializer
-    authentication_classes = (TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    # authentication_classes = (TokenAuthentication, )
+    # permission_classes = (IsAuthenticated, )
+    permission_classes = (AllowAny, )
+    search_fields = ['category_name']
 
 
 class ItemViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
-    # authentication_classes = (TokenAuthentication, )
-    # permission_classes = (IsAuthenticated, )
-    permission_classes = (AllowAny, )
+    authentication_classes = (TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+    # permission_classes = (AllowAny, )
     filter_backends = [filters.SearchFilter]
     search_fields = ['item_title', 'item_code', 'item_company', 'item_category__category_name']
     def create(self, request, *args, **kwargs):

@@ -4,6 +4,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpParams } from '@angular/common/http';
 import { CreateCategoryComponent } from './create-category/create-category.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 
 @Component({
   selector: 'app-category',
@@ -27,7 +28,7 @@ export class CategoryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.categories = this.getData('/itemcategories');
+    this.getData('/itemcategories');
   }
 
   getData(url: string){
@@ -70,7 +71,6 @@ export class CategoryComponent implements OnInit {
   }
 
   deleteCategory(id){
-    console.log(id);
     this.irsApiService.deleteRecord('itemcategories/', id).subscribe(response => {
       console.log(response);
       this._snackBar.open("Deleted category", "Dismiss", {
@@ -80,17 +80,13 @@ export class CategoryComponent implements OnInit {
     });
   }
 
-  editCategory(item){
-    console.log(item);
+  editCategory(category){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width="600px";
-    dialogConfig.data = {
-      categories: this.categories.results, 
-      item: item
-    };
-    this.dialog.open(CreateCategoryComponent, dialogConfig);
+    dialogConfig.data = category;
+    this.dialog.open(EditCategoryComponent, dialogConfig);
     this.dialog.afterAllClosed.subscribe(
       () => {
         this.refresh();
@@ -156,33 +152,33 @@ export class CategoryComponent implements OnInit {
     }
   }
 
-  applyFilter(event: Event){
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.lastFilter = filterValue;
-    let params = new HttpParams().set('search', filterValue);
-    this.irsApiService.getApiRecords('/itemcategories/', params).subscribe(
-      data => {
-        console.log(data);
-        this.categories = data;
-        if (data['next']) {
-          // set the components next property here from the response
-          this.next = data['next'];
-          this.next = this.next.split('irsapi').pop();
-          this.paginator._changePageSize(this.paginator.pageSize);
-        }
+  // applyFilter(event: Event){
+  //   const filterValue = (event.target as HTMLInputElement).value;
+  //   this.lastFilter = filterValue;
+  //   let params = new HttpParams().set('search', filterValue);
+  //   this.irsApiService.getApiRecords('/itemcategories/', params).subscribe(
+  //     data => {
+  //       console.log(data);
+  //       this.categories = data;
+  //       if (data['next']) {
+  //         // set the components next property here from the response
+  //         this.next = data['next'];
+  //         this.next = this.next.split('irsapi').pop();
+  //         this.paginator._changePageSize(this.paginator.pageSize);
+  //       }
   
-        if (data['previous']) {
-          // set the components previous property here from the response
-          this.previous = data['previous'];
-          this.previous = this.previous.split('irsapi').pop();
-          this.paginator._changePageSize(this.paginator.pageSize);
-        }
+  //       if (data['previous']) {
+  //         // set the components previous property here from the response
+  //         this.previous = data['previous'];
+  //         this.previous = this.previous.split('irsapi').pop();
+  //         this.paginator._changePageSize(this.paginator.pageSize);
+  //       }
         
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
+  //     },
+  //     error => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
 }

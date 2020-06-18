@@ -81,7 +81,7 @@ class ItemCategory(models.Model):
     category_id = models.AutoField(primary_key=True)
     category_name = models.CharField(max_length=32)
     category_discount = models.DecimalField(
-        max_digits=2,
+        max_digits=7,
         decimal_places=2,
         # validators=[
         #     MinValueValidator(0),

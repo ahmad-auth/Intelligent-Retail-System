@@ -1,1 +1,37 @@
-<p>edit-category works!</p>
+<div>
+    <div class="add-title">
+        <h2 class="primary">Add a new category</h2>
+    </div>
+    <div>
+        <form [formGroup]="editCategoryForm" (change)="formChanged()">
+            <mat-grid-list cols="2" [cols]="breakpoint" rowHeight="85px" (window:resize)="onResize($event)">
+                <mat-grid-tile>
+                    <div class="text-inside">
+                        <mat-form-field>
+                            <input matInput placeholder="Name" formControlName="category_name" required>
+                            <!-- <mat-error *ngIf="addCusForm.controls.firstname.hasError('required')">
+                                Please enter first name
+                            </mat-error>
+                            <mat-error *ngIf="addCusForm.controls.firstname.hasError('pattern')">
+                                Please enter valid first name
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div class="text-inside">
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="number" placeholder="Discount" formControlName="category_discount" required>
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <div class="btn-sec">
+                <button mat-raised-button type="submit" color="primary" class="Update-btn" (click)="editCategory()">Save</button>
+                <button mat-raised-button type="button" class="Discard-btn" (click)="openDialog()">Cancel</button>
+            </div>
+
+        </form>
+    </div>
+</div>

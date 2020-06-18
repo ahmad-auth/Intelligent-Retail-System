@@ -6,14 +6,14 @@
 
     <div class="content-container">
         <div class="items-table-container">
-            <h1>Items</h1>
+            <h1>Categories</h1>
             <div layout="row" flex>
-                <mat-form-field flex class="md-icon-float md-block md-title">
+                <!-- <mat-form-field flex class="md-icon-float md-block md-title">
                     <mat-label>Filter</mat-label>
                     <input matInput (keyup)="applyFilter($event)" placeholder="Search">
                     <fa-icon matSuffix [icon]="['fas', 'search']" matsuffix size="1x"></fa-icon>
-                </mat-form-field>
-                <div style="float: right;">
+                </mat-form-field> -->
+                <div style="margin-bottom: 20px;">
                     <button mat-raised-button color="Link" (click)="openDialog()">
                         <fa-icon [icon]="['fas', 'plus']" size="1x"></fa-icon>
                         Add a new category
@@ -59,7 +59,7 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
             <mat-toolbar>
-                <mat-toolbar-row>
+                <mat-toolbar-row style="padding: 0px;">
                     <span class="example-spacer"></span>
                     <mat-paginator #paginator class="paginator" [length]="categories.count" [pageSize]="10" (page)="paginatorEvent($event)"></mat-paginator>
                 </mat-toolbar-row>
