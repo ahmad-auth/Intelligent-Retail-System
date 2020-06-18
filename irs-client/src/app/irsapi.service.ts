@@ -24,11 +24,11 @@ export class IrsapiService {
 
   postFormData(route: string, data){
     const body = JSON.stringify(data);
-    return this.httpClient.post(`${this.serverUrl}${'irsapi/'}${route}`, body, {headers: this.getAuthHeaders()});
+    return this.httpClient.post(`${this.serverUrl}${'irsapi/'}${route}`, body, { headers: this.getAuthHeaders() });
   }
 
   deleteRecord(route: string, id){
-    return this.httpClient.delete(`${this.serverUrl}${'irsapi/'}${route}${id}`);
+    return this.httpClient.delete(`${this.serverUrl}${'irsapi/'}${route}${id}`, { headers: this.getAuthHeaders() });
   }
 
   putFormData(route: string, data, id){

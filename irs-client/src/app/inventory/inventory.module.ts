@@ -33,11 +33,16 @@ import { DiscardEditItemComponent } from './items/edititem/discard-edit-item/dis
 import { InventoryComponent } from './inventory.component';
 import { InventoryDashboardComponent } from './inventory-dashboard/inventory-dashboard.component';
 import { CategoryComponent } from './category/category.component';
+import { CreateCategoryComponent } from './category/create-category/create-category.component';
+import { EditCategoryComponent } from './category/edit-category/edit-category.component';
+import { DiscardCreateCategoryComponent } from './category/create-category/discard-create-category/discard-create-category.component';
+import { DiscardEditCategoryComponent } from './category/edit-category/discard-edit-category/discard-edit-category.component';
 // import { CreateitemComponent } from './items/createitem/createitem.component';
 // import { DeleteComponent } from './items/createitem/delete/delete.component';
 
 const routes: Routes = [
-{path: 'inventory/items', component: ItemsComponent, /*outlet: 'dashboard-outlet'*/}
+  { path: 'inventory/items', component: ItemsComponent },
+  { path: 'inventory/category', component: CategoryComponent }
 ];
 
 
@@ -48,7 +53,7 @@ const routes: Routes = [
     CreateitemComponent, 
     DiscardFormComponent, 
     EdititemComponent, 
-    DiscardEditItemComponent, InventoryDashboardComponent, CategoryComponent,
+    DiscardEditItemComponent, InventoryDashboardComponent, CategoryComponent, CreateCategoryComponent, EditCategoryComponent, DiscardCreateCategoryComponent, DiscardEditCategoryComponent,
   ],
   imports: [
     CommonModule,

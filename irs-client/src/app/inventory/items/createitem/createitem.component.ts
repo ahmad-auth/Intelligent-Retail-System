@@ -25,16 +25,20 @@ export class CreateitemComponent implements OnInit {
   public category: any;
   public selectedValue: any;
   public categories: any;
+  public stock: number;
   wasFormChanged = false;
   constructor(private irsApiService: IrsapiService, private fb: FormBuilder,
     public dialog: MatDialog,private _snackBar: MatSnackBar, @Inject(MAT_DIALOG_DATA) data) {
+      console.log(this.code);
       this.createItemForm = fb.group({
         item_code: [this.code, Validators.required],
         item_title: [this.title, Validators.required],
         item_price: [this.price, Validators.required],
         item_company: [this.company,Validators.required],
         item_discount: [this.discount,Validators.required],
-        item_category: [this.category]
+        item_category: [this.category, Validators.required],
+        item_stock: [this.stock, Validators.required]
+
       });
       this.categories = data;
     }
@@ -61,6 +65,7 @@ export class CreateitemComponent implements OnInit {
   }
 
   createItem(){
+    console.log(this.createItemForm.value);
     this.irsApiService.postFormData('items/', this.createItemForm.value).subscribe(
       data => {
         this.dialog.closeAll();

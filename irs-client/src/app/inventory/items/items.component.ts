@@ -16,7 +16,7 @@ import { EdititemComponent } from './edititem/edititem.component';
 export class ItemsComponent implements OnInit {
 
   items: any = [];
-  displayedColumns: string[] = ['item_id', 'item_code', 'item_title', 'item_price', 'item_company', 'item_discount', 'item_category_name', 'actions'];
+  displayedColumns: string[] = ['item_id', 'item_code', 'item_title', 'item_price', 'item_company', 'item_discount', 'item_category_name', 'item_stock', 'actions'];
 
   next: string;
   previous: string = null;

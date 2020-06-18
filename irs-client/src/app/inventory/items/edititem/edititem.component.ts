@@ -35,7 +35,8 @@ export class EdititemComponent implements OnInit {
         item_price: [data.item.item_price, Validators.required],
         item_company: [data.item.item_company,Validators.required],
         item_discount: [data.item.item_discount,Validators.required],
-        item_category: [data.item.item_category.category_id, Validators.required]
+        item_category: [data.item.item_category.category_id, Validators.required],
+        item_stock: [data.item.item_stock, Validators.required]
       });
       this.itemData = data.item.item_id;
       this.categories = data.categories;
