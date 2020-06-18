@@ -72,7 +72,7 @@
                     <th mat-header-cell *matHeaderCellDef> Actions </th>
                     <td mat-cell *matCellDef="let element">
                         <div class="action-buttons">
-                            <button class="action-button" mat-icon-button color="primary">
+                            <button class="action-button" (click)="editItem(element)" mat-icon-button color="primary">
                                 <fa-icon [icon]="['fas', 'edit']">Edit</fa-icon>
                             </button>
                             <button class="action-button" (click)="deleteItem(element.item_id)" mat-icon-button color="warn">

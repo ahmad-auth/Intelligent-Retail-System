@@ -6,6 +6,7 @@ import { HttpParams } from '@angular/common/http';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CreateitemComponent } from './createitem/createitem.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { EdititemComponent } from './edititem/edititem.component';
 
 @Component({
   selector: 'app-items',
@@ -67,6 +68,21 @@ export class ItemsComponent implements OnInit {
     );
   }
 
+  openDialog(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width="600px";
+    dialogConfig.data = this.categories.results;
+    this.dialog.open(CreateitemComponent, dialogConfig);
+    this.dialog.afterAllClosed.subscribe(
+      () => {
+        this.refresh();
+      }
+    );
+    
+  }
+
   deleteItem(id){
     console.log(id);
     this.irsApiService.deleteRecord('items/', id).subscribe(response => {
@@ -77,6 +93,25 @@ export class ItemsComponent implements OnInit {
       this.refresh();
     });
   }
+
+  editItem(item){
+    console.log(item);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width="600px";
+    dialogConfig.data = {
+      categories: this.categories.results, 
+      item: item
+    };
+    this.dialog.open(EdititemComponent, dialogConfig);
+    this.dialog.afterAllClosed.subscribe(
+      () => {
+        this.refresh();
+      }
+    );
+  }
+
 
   getNext(){
     this.getData(this.next);
@@ -101,15 +136,7 @@ export class ItemsComponent implements OnInit {
     }
   }
 
-  openDialog(): void {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width="600px";
-    dialogConfig.data = this.categories.results;
-    this.dialog.open(CreateitemComponent, dialogConfig);
-    
-  }
+  
 
   refresh(){
     if(this.lastFilter == null){

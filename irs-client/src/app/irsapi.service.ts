@@ -31,6 +31,11 @@ export class IrsapiService {
     return this.httpClient.delete(`${this.serverUrl}${'irsapi/'}${route}${id}`);
   }
 
+  putFormData(route: string, data, id){
+    const body = JSON.stringify(data);
+    return this.httpClient.put(`${this.serverUrl}${'irsapi/'}${route}${id}${'/'}`, body, {headers: this.getAuthHeaders()});
+  }
+
   loginUser(authData) {
     const body = JSON.stringify(authData);
     // console.log(body);
