@@ -3,7 +3,7 @@ import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { HttpParams } from '@angular/common/http';
 import { IrsapiService } from 'src/app/irsapi.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CreateStoreComponent } from './create-store/create-store.component';
+import { CreateStoreComponent } from './create-store/create-store.component'
 import { EditStoreComponent } from './edit-store/edit-store.component';
 import { PageEvent } from '@angular/material/paginator';
 
