@@ -33,6 +33,13 @@ class Employee(models.Model):
     employment_status = models.BinaryField()
     hired_by = models.ForeignKey(
         User,
+        related_name = 'hired_by',
+        null=True,
+        on_delete=models.SET_NULL
+    )
+    user = models.ForeignKey(
+        User,
+        related_name = 'user',
         null=True,
         on_delete=models.SET_NULL
     )
@@ -92,9 +99,7 @@ class ItemCategory(models.Model):
 class Item(models.Model):
     item_id = models.AutoField(primary_key=True)
     item_code = models.CharField(max_length=32)  # Barcode of Items
-    item_stock = models.IntegerField(
-        #validators=[MinValueValidator(1)]
-    )
+    item_stock = models.IntegerField()
     item_title = models.CharField(max_length=64)
     item_price = models.DecimalField(
         max_digits=6,

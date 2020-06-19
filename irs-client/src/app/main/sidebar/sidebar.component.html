@@ -1,62 +1,61 @@
-
 <div class="sidebar-content">
-  <button (click)="navigate('/home')" class="component-button" mat-stroked-button>
+    <button (click)="navigate('/home')" class="component-button" mat-stroked-button>
     <div class="button-content">
       <fa-icon [icon]="['fas', 'home']" size="2x"></fa-icon>
       <h2>Home</h2>
     </div>
   </button>
 
-  <button class="component-button" mat-stroked-button disabled>
+    <button class="component-button" (click)="navigate('/stores')" mat-stroked-button>
     <div class="button-content">
       <fa-icon [icon]="['fas', 'store']" size="2x"></fa-icon>
       <h2>Stores</h2>
     </div>
   </button>
 
-  <button (click)="navigate('/inventory')" class="component-button" mat-stroked-button>
+    <button (click)="navigate('/inventory')" class="component-button" mat-stroked-button>
     <div class="button-content">
       <fa-icon [icon]="['fas', 'boxes']" size="2x"></fa-icon>
       <h2>Inventory</h2>
     </div>
   </button>
 
-  <button class="component-button" mat-stroked-button disabled>
+    <button class="component-button" mat-stroked-button disabled>
     <div class="button-content">
       <fa-icon [icon]="['fas', 'dollar-sign']" size="2x"></fa-icon>
       <h2>Sales</h2>
     </div>
   </button>
 
-  <button (click)="navigate('/reports')" class="component-button" mat-stroked-button>
+    <button (click)="navigate('/reports')" class="component-button" mat-stroked-button>
     <div class="button-content">
       <fa-icon [icon]="['fas', 'chart-line']" size="2x"></fa-icon>
       <h2>Reports and Analytics</h2>
     </div>
   </button>
 
-  <button class="component-button" mmat-stroked-button disabled>
+    <button class="component-button" mmat-stroked-button disabled>
     <div class="button-content">
       <fa-icon [icon]="['fas', 'coins']" size="2x"></fa-icon>
       <h2>Finances</h2>
     </div>
   </button>
 
-  <button (click)="navigate('/customers')" class="component-button" mat-stroked-button>
+    <button (click)="navigate('/customers')" class="component-button" mat-stroked-button>
     <div class="button-content">
       <fa-icon [icon]="['fas', 'address-book']" size="2x"></fa-icon>
       <h2>Customers</h2>
     </div>
   </button>
 
-  <button (click)="navigate('/employees')" class="component-button" mat-stroked-button>
+    <button (click)="navigate('/employees')" class="component-button" mat-stroked-button>
     <div class="button-content">
       <fa-icon [icon]="['fas', 'id-card']" size="2x"></fa-icon>
       <h2>Employees</h2>
     </div>
   </button>
 
-  <button (click)="navigate('/users')" class="component-button" mat-stroked-button>
+    <button (click)="navigate('/users')" class="component-button" mat-stroked-button>
     <div class="button-content">
       <fa-icon [icon]="['fas', 'users']" size="2x"></fa-icon>
       <h2>Users</h2>

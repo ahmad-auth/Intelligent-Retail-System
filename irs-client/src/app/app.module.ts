@@ -16,6 +16,8 @@ import { InventoryModule } from './inventory/inventory.module';
 import { ReportsModule } from './reports/reports.module';
 
 import { AppComponent } from './app.component';
+import { StoresComponent } from './stores/stores.component';
+import { StoresModule } from './stores/stores.module';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home' }
@@ -35,6 +37,7 @@ const routes: Routes = [
     EmployeesModule,
     InventoryModule,
     ReportsModule,
+    StoresModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes)

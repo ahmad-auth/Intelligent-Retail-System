@@ -27,11 +27,13 @@ import { ItemsComponent } from '../inventory/items/items.component';
 import {AppComponent} from '../app.component';
 import { SalesForecastComponent } from '../reports/sales-forecast/sales-forecast.component';
 import { InventoryComponent } from '../inventory/inventory.component';
+import { StoresComponent } from '../stores/stores.component';
 
 
 const routes: Routes = [
   {path: 'home', component: MainComponent},
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'stores', component: StoresComponent},
   {path: 'users', component: UsersComponent},
   {path: 'customers', component: CustomersComponent},
   {path: 'employees', component: EmployeesComponent},

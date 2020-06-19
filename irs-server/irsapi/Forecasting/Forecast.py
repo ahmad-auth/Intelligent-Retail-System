@@ -5,13 +5,20 @@ from fbprophet import Prophet
 from . import DataSpecificHelpers as dh
 from . import ForecastHelpers as fh
 
-original_data = pd.read_csv('./irsapi/Forecasting/onlineretail.csv', encoding='latin1')
+
 
 # PREPROCESSING
 
-cleaned_data = dh.clean_data(original_data)
-#data = remove_outliers(data, 0, 1000)
-data = fh.aggregate_minute_to_daily(cleaned_data)
+def clean():
+    original_data = pd.read_csv('./irsapi/Forecasting/onlineretail.csv', encoding='latin1')
+    cleaned_data = dh.clean_data(original_data)
+    #cleaned_data = remove_outliers(cleaned_data, 0, 1000)
+    cleaned_data = fh.aggregate_minute_to_daily(cleaned_data)
+    cleaned_data.to_csv('./irsapi/Forecasting/data.csv')
+
+#clean()
+data = pd.read_csv('./irsapi/Forecasting/data.csv')
+
 # TRAIN MODEL AND FORECAST
 
 ##### SALES FORECAST #####

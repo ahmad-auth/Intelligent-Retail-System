@@ -3,13 +3,14 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { AuthToolbarComponent } from '../main/auth-toolbar/auth-toolbar.component';
 import { SidebarComponent } from '../main/sidebar/sidebar.component';
+import { StoresDashboardComponent } from './stores-dashboard/stores-dashboard.component';
 
 @Component({
-  selector: 'app-inventory',
-  templateUrl: './inventory.component.html',
-  styleUrls: ['./inventory.component.css']
+  selector: 'app-stores',
+  templateUrl: './stores.component.html',
+  styleUrls: ['./stores.component.css']
 })
-export class InventoryComponent implements OnInit {
+export class StoresComponent implements OnInit {
 
   constructor(
     private cookieService: CookieService,
