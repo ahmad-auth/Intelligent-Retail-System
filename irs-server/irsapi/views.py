@@ -2,23 +2,32 @@ from django.shortcuts import render
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from rest_framework.authentication import TokenAuthentication
+from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import filters
+from rest_framework.views import APIView
 
 from django.contrib.auth.models import User
 
 from .models import Store, Employee, Customer, Salepoint, ItemCategory, Item, ItemBatch, Order, Sale
 from .serializers import UserSerializer, StoreSerializer, EmployeeSerializer, CustomerSerializer, SalepointSerializer, ItemCategorySerializer, ItemSerializer, ItemCreateSerializer, ItemBatchSerializer, OrderSerializer, SaleSerializer
+from .Forecasting.Forecast import forecast_monthly_sales
 # Create your views here.
 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (AllowAny, )
-    # authentication_classes = (TokenAuthentication, )
-    # permission_classes = (IsAuthenticated, )
+    # permission_classes = (AllowAny, )
+    authentication_classes = (TokenAuthentication, SessionAuthentication)
+    permission_classes = (IsAuthenticated, )
+    def retrieve(self, request, *args, **kwargs):
+        """
+        If provided 'pk' is "me" then return the current user.
+        """
+        if kwargs.get('pk') == 'me':
+            return Response(UserSerializer(request.user).data)
+        return super().retrieve(request, args, kwargs)
 
 
 class StoreViewSet(viewsets.ModelViewSet):

@@ -18,11 +18,16 @@ export class IrsapiService {
     private cookieService: CookieService
   ) { }
 
+
+  getCurrentUser(){
+    return this.httpClient.get(`${this.serverUrl}${this.apiName}${'/users/me'}`, {headers: this.getAuthHeaders()});
+  }
+
   getApiRecords(route: string, parameters?: HttpParams) {
     return this.httpClient.get(`${this.serverUrl}${this.apiName}${route}`, {headers: this.getAuthHeaders(), params: parameters});
   }
 
-  postFormData(route: string, data){
+  postFormData(route: string, data: any){
     const body = JSON.stringify(data);
     return this.httpClient.post(`${this.serverUrl}${'irsapi/'}${route}`, body, { headers: this.getAuthHeaders() });
   }

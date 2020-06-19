@@ -5,7 +5,7 @@ from fbprophet import Prophet
 from . import DataSpecificHelpers as dh
 from . import ForecastHelpers as fh
 
-original_data = pd.read_csv('./irsapi/Forecasting/onlineretail.csv')
+original_data = pd.read_csv('./irsapi/Forecasting/onlineretail.csv', encoding='latin1')
 
 # PREPROCESSING
 
