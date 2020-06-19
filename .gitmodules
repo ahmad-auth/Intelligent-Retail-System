@@ -1,0 +1,3 @@
+[submodule "irs-server"]
+	path = irs-server
+	url = https://github.com/ahmad-auth/irs-server.git
