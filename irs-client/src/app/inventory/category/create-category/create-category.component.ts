@@ -23,8 +23,8 @@ export class CreateCategoryComponent implements OnInit {
   constructor(private irsApiService: IrsapiService, private fb: FormBuilder,
     public dialog: MatDialog,private _snackBar: MatSnackBar) {
       this.createCategoryForm = fb.group({
-        category_name: [this.name, Validators.required],
-        category_discount: [this.discount, Validators.required],
+        category_name: [this.name, [ Validators.required, Validators.maxLength(32) ]],
+        category_discount: [this.discount, [ Validators.required, Validators.max(100000) ]],
 
       });
     }

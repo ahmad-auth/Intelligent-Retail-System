@@ -9,12 +9,12 @@
                     <div class="text-inside">
                         <mat-form-field>
                             <input matInput placeholder="Code" formControlName="item_code" required>
-                            <!-- <mat-error *ngIf="addCusForm.controls.firstname.hasError('required')">
-                                Please enter first name
+                            <mat-error *ngIf="createItemForm.controls.item_code.hasError('required')">
+                                Please enter code
                             </mat-error>
-                            <mat-error *ngIf="addCusForm.controls.firstname.hasError('pattern')">
-                                Please enter valid first name
-                            </mat-error> -->
+                            <mat-error *ngIf="createItemForm.controls.item_code.hasError('maxlength')">
+                                Maximum 32 characters allowed
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </mat-grid-tile>
@@ -22,6 +22,12 @@
                     <div class="text-inside">
                         <mat-form-field class="example-full-width">
                             <input matInput placeholder="Title" formControlName="item_title" required>
+                            <mat-error *ngIf="createItemForm.controls.item_title.hasError('required')">
+                                Please enter title
+                            </mat-error>
+                            <mat-error *ngIf="createItemForm.controls.item_title.hasError('maxlength')">
+                                Maximum 64 characters allowed
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </mat-grid-tile>
@@ -29,6 +35,12 @@
                     <div class="text-inside">
                         <mat-form-field class="example-full-width">
                             <input matInput type="number" placeholder="Price" formControlName="item_price" required>
+                            <mat-error *ngIf="createItemForm.controls.item_price.hasError('required')">
+                                Please enter price
+                            </mat-error>
+                            <mat-error *ngIf="createItemForm.controls.item_price.hasError('max')">
+                                Maximum 100,000 value allowed
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </mat-grid-tile>
@@ -37,6 +49,12 @@
                     <div class="text-inside">
                         <mat-form-field class="example-full-width">
                             <input matInput placeholder="Company" formControlName="item_company" required>
+                            <mat-error *ngIf="createItemForm.controls.item_company.hasError('required')">
+                                Please enter company
+                            </mat-error>
+                            <mat-error *ngIf="createItemForm.controls.item_company.hasError('maxlength')">
+                                Maximum 32 characters allowed
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </mat-grid-tile>
@@ -45,6 +63,9 @@
                     <div class="text-inside">
                         <mat-form-field class="example-full-width">
                             <input matInput placeholder="Stock" formControlName="item_stock" required>
+                            <mat-error *ngIf="createItemForm.controls.item_stock.hasError('required')">
+                                Please enter stock
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </mat-grid-tile>
@@ -58,6 +79,9 @@
                                     {{category.category_name}}
                                 </mat-option>
                             </mat-select>
+                            <mat-error *ngIf="createItemForm.controls.item_category.hasError('required')">
+                                Please select category
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </mat-grid-tile>
@@ -65,6 +89,9 @@
                     <div class="text-inside">
                         <mat-form-field class="example-full-width">
                             <input matInput type="number" placeholder="Discount" formControlName="item_discount" required>
+                            <mat-error *ngIf="createItemForm.controls.item_discount.hasError('required')">
+                                Please enter discount
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </mat-grid-tile>

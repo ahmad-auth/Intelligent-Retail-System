@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidatorFn } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DiscardFormComponent } from './discard-form/discard-form.component';
 import { IrsapiService } from 'src/app/irsapi.service';
@@ -31,11 +31,11 @@ export class CreateitemComponent implements OnInit {
     public dialog: MatDialog,private _snackBar: MatSnackBar, @Inject(MAT_DIALOG_DATA) data) {
       console.log(this.code);
       this.createItemForm = fb.group({
-        item_code: [this.code, Validators.required],
-        item_title: [this.title, Validators.required],
-        item_price: [this.price, Validators.required],
-        item_company: [this.company,Validators.required],
-        item_discount: [this.discount,Validators.required],
+        item_code: [this.code, [ Validators.required, Validators.maxLength(32) ]],
+        item_title: [this.title, [ Validators.required, Validators.maxLength(64) ]],
+        item_price: [this.price, [ Validators.required, Validators.max(100000) ]],
+        item_company: [this.company,[ Validators.required, Validators.maxLength(32) ]],
+        item_discount: [this.discount,  Validators.required ],
         item_category: [this.category, Validators.required],
         item_stock: [this.stock, Validators.required]
 

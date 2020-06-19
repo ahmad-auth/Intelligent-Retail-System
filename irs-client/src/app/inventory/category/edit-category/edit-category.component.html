@@ -9,12 +9,12 @@
                     <div class="text-inside">
                         <mat-form-field>
                             <input matInput placeholder="Name" formControlName="category_name" required>
-                            <!-- <mat-error *ngIf="addCusForm.controls.firstname.hasError('required')">
-                                Please enter first name
+                            <mat-error *ngIf="editCategoryForm.controls.category_name.hasError('required')">
+                                Please enter category name
                             </mat-error>
-                            <mat-error *ngIf="addCusForm.controls.firstname.hasError('pattern')">
-                                Please enter valid first name
-                            </mat-error> -->
+                            <mat-error *ngIf="editCategoryForm.controls.category_name.hasError('maxlength')">
+                                Maximum 32 characters allowed
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </mat-grid-tile>
@@ -22,6 +22,12 @@
                     <div class="text-inside">
                         <mat-form-field class="example-full-width">
                             <input matInput type="number" placeholder="Discount" formControlName="category_discount" required>
+                            <mat-error *ngIf="editCategoryForm.controls.category_discount.hasError('required')">
+                                Please enter category discount
+                            </mat-error>
+                            <mat-error *ngIf="editCategoryForm.controls.category_name.hasError('max')">
+                                Maximum 100,000 value allowed
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </mat-grid-tile>

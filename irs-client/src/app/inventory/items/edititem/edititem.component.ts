@@ -30,10 +30,10 @@ export class EdititemComponent implements OnInit {
   constructor(private irsApiService: IrsapiService, private fb: FormBuilder,
     public dialog: MatDialog,private _snackBar: MatSnackBar, @Inject(MAT_DIALOG_DATA) data) {
       this.editItemForm = fb.group({
-        item_code: [data.item.item_code, Validators.required],
-        item_title: [data.item.item_title, Validators.required],
-        item_price: [data.item.item_price, Validators.required],
-        item_company: [data.item.item_company,Validators.required],
+        item_code: [data.item.item_code, [ Validators.required, Validators.maxLength(32) ]],
+        item_title: [data.item.item_title, [ Validators.required, Validators.maxLength(64) ]],
+        item_price: [data.item.item_price, [ Validators.required, Validators.max(100000) ]],
+        item_company: [data.item.item_company, [ Validators.required, Validators.maxLength(32) ]],
         item_discount: [data.item.item_discount,Validators.required],
         item_category: [data.item.item_category.category_id, Validators.required],
         item_stock: [data.item.item_stock, Validators.required]
