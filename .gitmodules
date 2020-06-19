@@ -1,3 +1,6 @@
 [submodule "irs-server"]
 	path = irs-server
 	url = https://github.com/ahmad-auth/irs-server.git
+[submodule "irs-client"]
+	path = irs-client
+	url = https://github.com/ahmad-auth/irs-client.git
